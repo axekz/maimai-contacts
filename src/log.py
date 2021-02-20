@@ -16,6 +16,8 @@ import os
 class Log:
     def __init__(self, file, path='log'):
         self.path = os.getcwd() + '/' + path + '/'
+        if not os.path.exists(self.path):
+            os.makedirs(self.path, 0o777)
         self.file = self.path + file
         self.fd = open(self.file, "a+")
 
